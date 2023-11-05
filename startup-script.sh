@@ -17,29 +17,9 @@
    gcloud auth print-access-token | sudo docker login -u oauth2accesstoken --password-stdin $REGION-docker.pkg.dev
 
    # Pull and push the images
-   sudo docker pull cvallance/mongo-k8s-sidecar
-   sudo docker tag docker.io/cvallance/mongo-k8s-sidecar:latest $REGION-docker.pkg.dev/$PROJECT_NAME/$REPO_NAME/cvallance/mongo-k8s-sidecar:v1
-   sudo docker push $REGION-docker.pkg.dev/$PROJECT_NAME/$REPO_NAME/cvallance/mongo-k8s-sidecar:v1
-
-   sudo docker pull fadyelyas/mongo:v2
-   sudo docker tag docker.io/fadyelyas/mongo:v2 $REGION-docker.pkg.dev/$PROJECT_NAME/$REPO_NAME/fadyelyas/mongo:v2
-   sudo docker push $REGION-docker.pkg.dev/$PROJECT_NAME/$REPO_NAME/fadyelyas/mongo:v2
+   sudo docker pull petro8/node-app
+   sudo docker tag docker.io/petro8/node-app:latest $REGION-docker.pkg.dev/$PROJECT_NAME/$REPO_NAME/petro8/node-app:v1
+   sudo docker push $REGION-docker.pkg.dev/$PROJECT_NAME/$REPO_NAME/petro8/node-app:v1
    
-   sudo docker pull fadyelyas/node-app:v1
-   sudo docker tag docker.io/fadyelyas/node-app:v1 $REGION-docker.pkg.dev/$PROJECT_NAME/$REPO_NAME/fadyelyas/node-app:v1
-   sudo docker push $REGION-docker.pkg.dev/$PROJECT_NAME/$REPO_NAME/fadyelyas/node-app:v1
-   
-   # install git
-   sudo apt update
-   sudo apt install git -y
-   
-      # clone yaml-files-repo
-   git clone https://github.com/FadyAtefElyas/yaml-files.git
-   
-   cd yaml-files/
-   kubectl apply -f .
-   cd ../
-   
-   sudo google_metadata_script_runner startup
    
    ############
